@@ -47,6 +47,10 @@ resource "azurerm_app_service_plan" "spacegame" {
   }
 }
 
+provider "azurerm" {
+   features {}
+}
+
 resource "azurerm_app_service" "spacegame_dev" {
   name                = "${var.app_service_name_prefix}-dev-${random_integer.app_service_name_suffix.result}"
   location            = "${azurerm_resource_group.spacegame.location}"
